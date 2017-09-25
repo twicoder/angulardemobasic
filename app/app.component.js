@@ -15,6 +15,14 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.getName = function () {
         return this.model.user;
     };
+    AppComponent.prototype.getTodoItems = function () {
+        return this.model.items.filter(function (item) { return !item.done; });
+    };
+    AppComponent.prototype.addItem = function (newItem) {
+        if (newItem != "") {
+            this.model.items.push(new model_1.TodoItem(newItem, false));
+        }
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: "todo-app",
